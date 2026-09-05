@@ -1,0 +1,586 @@
+:root {
+    --neon-cyan: #00ff41;
+    --neon-purple: #bc13fe;
+    --neon-pink: #ff006e;
+    --neon-blue: #0099ff;
+    --neon-green: #39ff14;
+    --neon-yellow: #ffff00;
+    --neon-orange: #ff6600;
+    --neon-red: #ff0040;
+    --bg-dark: #0a0e27;
+    --bg-darker: #050812;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Courier New', 'Consolas', monospace;
+    background: var(--bg-darker);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.neon-bg {
+    background: linear-gradient(135deg, var(--bg-darker) 0%, #1a0033 50%, #0a0e27 100%);
+    min-height: 100vh;
+    position: relative;
+}
+
+.neon-bg::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(188, 19, 254, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 0%, rgba(0, 153, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+    animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.stars::before,
+.stars::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow: 100px 100px white, 200px 150px white, 300px 50px white,
+                400px 200px white, 500px 100px white, 600px 250px white,
+                700px 80px white, 800px 180px white, 900px 120px white,
+                1000px 220px white, 1100px 70px white, 1200px 200px white;
+    animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.neon-card {
+    background: rgba(10, 14, 39, 0.85);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 25px;
+    padding: 50px;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 65, 0.4),
+        0 0 60px rgba(0, 255, 65, 0.2),
+        inset 0 0 30px rgba(0, 255, 65, 0.05);
+    animation: cardGlow 6s ease-in-out infinite;
+}
+
+@keyframes cardGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(0, 255, 65, 0.4), 0 0 60px rgba(0, 255, 65, 0.2), inset 0 0 30px rgba(0, 255, 65, 0.05); }
+    50% { box-shadow: 0 0 40px rgba(0, 255, 65, 0.5), 0 0 80px rgba(0, 255, 65, 0.25), inset 0 0 40px rgba(0, 255, 65, 0.08); }
+}
+
+.neon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid var(--neon-cyan);
+    gap: 30px;
+}
+
+.neon-header h1 {
+    font-size: 3em;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px rgba(0, 255, 65, 0.5);
+    letter-spacing: 3px;
+    font-weight: 900;
+}
+
+.neon-header .subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+.version-badge {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #111111 100%);
+    color: lime;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 0.95em;
+    font-weight: bold;
+    box-shadow: 0 0 20px var(--neon-green), 0 0 40px rgba(188, 19, 254, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+}
+
+.alert {
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    border-left: 5px solid;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    font-weight: 600;
+    animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.alert .icon {
+    font-size: 1.8em;
+    flex-shrink: 0;
+}
+
+.alert strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.alert p {
+    margin: 0;
+    font-weight: normal;
+}
+
+.alert-error {
+    border-color: var(--neon-red);
+    background: rgba(255, 0, 64, 0.12);
+    color: #ff9bb5;
+    text-shadow: 0 0 10px rgba(255, 0, 64, 0.6);
+}
+
+.alert-success {
+    border-color: var(--neon-green);
+    background: rgba(57, 255, 20, 0.12);
+    color: #85ff72;
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.6);
+}
+
+.neon-glow-cyan {
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.35), inset 0 0 25px rgba(0, 255, 65, 0.05);
+    transition: var(--transition);
+}
+
+.neon-glow-cyan:hover {
+    box-shadow: 0 0 35px rgba(0, 255, 65, 0.5), inset 0 0 35px rgba(0, 255, 65, 0.1);
+}
+
+.neon-glow-purple {
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 25px rgba(188, 19, 254, 0.35), inset 0 0 25px rgba(188, 19, 254, 0.05);
+    transition: var(--transition);
+}
+
+.neon-glow-purple:hover {
+    box-shadow: 0 0 35px rgba(188, 19, 254, 0.5), inset 0 0 35px rgba(188, 19, 254, 0.1);
+}
+
+.neon-glow-yellow {
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 25px rgba(255, 255, 0, 0.3), inset 0 0 25px rgba(255, 255, 0, 0.05);
+}
+
+.neon-glow-red {
+    border: 2px solid var(--neon-red);
+    box-shadow: 0 0 25px rgba(255, 0, 64, 0.35), inset 0 0 25px rgba(255, 0, 64, 0.05);
+}
+
+.neon-glow-green {
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.35), inset 0 0 25px rgba(57, 255, 20, 0.05);
+}
+
+.player-info {
+    background: rgba(0, 255, 65, 0.08);
+    padding: 35px;
+    border-radius: 18px;
+    margin-bottom: 50px;
+}
+
+.player-info h2 {
+    color: var(--neon-cyan);
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    text-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.info-item {
+    padding: 20px;
+    background: rgba(10, 14, 39, 0.7);
+    border-left: 4px solid var(--neon-cyan);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.info-item:hover {
+    background: rgba(10, 14, 39, 0.9);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+.info-item label {
+    display: block;
+    color: var(--neon-cyan);
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    text-shadow: 0 0 8px var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-item .value {
+    color: var(--text-primary);
+    font-size: 1.2em;
+    word-break: break-word;
+}
+
+.upload-section {
+    background: rgba(188, 19, 254, 0.08);
+    padding: 40px;
+    border-radius: 18px;
+    margin-bottom: 50px;
+}
+
+.upload-section h2 {
+    color: var(--neon-purple);
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    text-shadow: 0 0 15px var(--neon-purple);
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.file-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 35px;
+    background: rgba(10, 14, 39, 0.6);
+    border: 3px dashed var(--neon-purple);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.file-label:hover {
+    background: rgba(188, 19, 254, 0.15);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.3);
+}
+
+.file-icon {
+    font-size: 2.2em;
+}
+
+.file-text {
+    color: var(--neon-purple);
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.btn {
+    padding: 18px 40px;
+    border: 2px solid lime;
+    border-radius: 12px;
+    font-size: 1.05em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: transparent;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.btn-primary:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 40px var(--neon-cyan);
+    text-shadow: none;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+    text-shadow: 0 0 10px var(--neon-red);
+}
+
+.btn-danger:hover {
+    background: var(--neon-red);
+    color: white;
+    box-shadow: 0 0 40px var(--neon-red);
+    text-shadow: none;
+    transform: translateY(-2px);
+}
+
+.remove-form {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 2px dashed rgba(255, 0, 64, 0.3);
+}
+
+.help-section {
+    background: rgba(255, 255, 0, 0.08);
+    padding: 40px;
+    border-radius: 18px;
+    margin-bottom: 40px;
+}
+
+.help-header {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid rgba(255, 255, 0, 0.3);
+}
+
+.help-header h2 {
+    color: var(--neon-yellow);
+    font-size: 1.5em;
+    text-shadow: 0 0 15px var(--neon-yellow);
+    margin-bottom: 10px;
+}
+
+.help-intro {
+    color: var(--text-secondary);
+    font-size: 0.95em;
+}
+
+.help-content {
+    margin: 30px 0;
+}
+
+.step-list {
+    display: grid;
+    gap: 18px;
+}
+
+.step-item {
+    display: flex;
+    gap: 20px;
+    padding: 18px;
+    background: rgba(10, 14, 39, 0.5);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.step-item:hover {
+    background: rgba(10, 14, 39, 0.8);
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.2);
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    height: 45px;
+    background: var(--neon-yellow);
+    color: var(--bg-dark);
+    border-radius: 50%;
+    font-weight: 900;
+    font-size: 1.2em;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+}
+
+.step-text strong {
+    color: var(--neon-yellow);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.step-text a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    text-shadow: 0 0 5px var(--neon-blue);
+    transition: var(--transition);
+}
+
+.step-text a:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.help-footer {
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid rgba(255, 255, 0, 0.3);
+}
+
+.free-text {
+    color: var(--neon-yellow);
+    font-weight: 700;
+    font-size: 1.1em;
+    text-shadow: 0 0 10px var(--neon-yellow);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid rgba(0, 255, 65, 0.2);
+    color: var(--text-secondary);
+}
+
+.footer p {
+    margin: 8px 0;
+    font-size: 0.95em;
+}
+
+.footer a {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    text-shadow: 0 0 5px var(--neon-cyan);
+    transition: var(--transition);
+}
+
+.footer a:hover {
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .neon-card {
+        padding: 30px 25px;
+        border-radius: 20px;
+    }
+    
+    .neon-header {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+    }
+    
+    .neon-header h1 {
+        font-size: 1.8em;
+    }
+    
+    .version-badge {
+        align-self: flex-start;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .upload-form {
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 15px 30px;
+    }
+    
+    .upload-section,
+    .player-info,
+    .help-section {
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .step-number {
+        min-width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .neon-card {
+        padding: 20px;
+    }
+    
+    .neon-header h1 {
+        font-size: 1.4em;
+        letter-spacing: 1px;
+    }
+    
+    .subtitle {
+        font-size: 0.8em;
+    }
+    
+    .version-badge {
+        font-size: 0.8em;
+        padding: 8px 15px;
+    }
+}

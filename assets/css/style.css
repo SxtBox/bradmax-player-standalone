@@ -1,0 +1,70 @@
+/* Additional responsive and utility styles */
+
+.player-demo {
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(0, 153, 255, 0.08);
+    border: 2px solid #0099ff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 153, 255, 0.3);
+}
+
+.player-demo h3 {
+    color: #0099ff;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0, 153, 255, 0.7);
+}
+
+.shortcode-example {
+    background: rgba(10, 14, 39, 0.8);
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    font-family: 'Courier New', monospace;
+    color: #00ff41;
+    overflow-x: auto;
+    line-height: 1.4;
+}
+
+.shortcode-example code {
+    color: #00ff41;
+}
+
+.loading {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neon-cyan);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(10, 14, 39, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-cyan);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-purple);
+}
