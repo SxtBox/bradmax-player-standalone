@@ -1,10 +1,10 @@
 :root {
-    --neon-cyan: #00ff41;
-    --neon-purple: #bc13fe;
-    --neon-pink: #ff006e;
-    --neon-blue: #0099ff;
+    --neon-cyan: #b6ff00;
+    --neon-purple: #9cff00;
+    --neon-pink: #d7ff00;
+    --neon-blue: #b6ff00;
     --neon-green: #39ff14;
-    --neon-yellow: #ffff00;
+    --neon-yellow: #d7ff00;
     --neon-orange: #ff6600;
     --neon-red: #ff0040;
     --bg-dark: #0a0e27;
@@ -34,7 +34,7 @@ body {
 }
 
 .neon-bg {
-    background: linear-gradient(135deg, var(--bg-darker) 0%, #1a0033 50%, #0a0e27 100%);
+    background: linear-gradient(135deg, var(--bg-darker) 0%, #172400 50%, #0a0e27 100%);
     min-height: 100vh;
     position: relative;
 }
@@ -48,7 +48,7 @@ body {
     height: 100%;
     background: 
         radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(188, 19, 254, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(182, 255, 0, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 50% 0%, rgba(0, 153, 255, 0.05) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
@@ -147,7 +147,7 @@ body {
     border-radius: 25px;
     font-size: 0.95em;
     font-weight: bold;
-    box-shadow: 0 0 20px var(--neon-green), 0 0 40px rgba(188, 19, 254, 0.4);
+    box-shadow: 0 0 20px var(--neon-green), 0 0 40px rgba(182, 255, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.2);
     white-space: nowrap;
 }
@@ -156,7 +156,7 @@ body {
     padding: 25px;
     margin-bottom: 40px;
     border-radius: 15px;
-    border-left: 5px solid;
+    border: 1px solid currentColor;
     display: flex;
     align-items: flex-start;
     gap: 20px;
@@ -210,12 +210,12 @@ body {
 
 .neon-glow-purple {
     border: 2px solid var(--neon-green);
-    box-shadow: 0 0 25px rgba(188, 19, 254, 0.35), inset 0 0 25px rgba(188, 19, 254, 0.05);
+    box-shadow: 0 0 25px rgba(182, 255, 0, 0.35), inset 0 0 25px rgba(182, 255, 0, 0.05);
     transition: var(--transition);
 }
 
 .neon-glow-purple:hover {
-    box-shadow: 0 0 35px rgba(188, 19, 254, 0.5), inset 0 0 35px rgba(188, 19, 254, 0.1);
+    box-shadow: 0 0 35px rgba(182, 255, 0, 0.5), inset 0 0 35px rgba(182, 255, 0, 0.1);
 }
 
 .neon-glow-yellow {
@@ -257,7 +257,7 @@ body {
 .info-item {
     padding: 20px;
     background: rgba(10, 14, 39, 0.7);
-    border-left: 4px solid var(--neon-cyan);
+    border: 1px solid rgba(182, 255, 0, 0.45);
     border-radius: 8px;
     transition: var(--transition);
 }
@@ -285,17 +285,17 @@ body {
 }
 
 .upload-section {
-    background: rgba(188, 19, 254, 0.08);
+    background: rgba(182, 255, 0, 0.08);
     padding: 40px;
     border-radius: 18px;
     margin-bottom: 50px;
 }
 
 .upload-section h2 {
-    color: var(--neon-purple);
+    color: var(--neon-cyan);
     margin-bottom: 30px;
     font-size: 1.5em;
-    text-shadow: 0 0 15px var(--neon-purple);
+    text-shadow: 0 0 15px var(--neon-cyan);
 }
 
 .upload-form {
@@ -315,16 +315,16 @@ body {
     gap: 20px;
     padding: 35px;
     background: rgba(10, 14, 39, 0.6);
-    border: 3px dashed var(--neon-purple);
+    border: 3px dashed var(--neon-cyan);
     border-radius: 15px;
     cursor: pointer;
     transition: var(--transition);
 }
 
 .file-label:hover {
-    background: rgba(188, 19, 254, 0.15);
+    background: rgba(182, 255, 0, 0.15);
     border-color: var(--neon-green);
-    box-shadow: 0 0 20px rgba(188, 19, 254, 0.3);
+    box-shadow: 0 0 20px rgba(182, 255, 0, 0.3);
 }
 
 .file-icon {
@@ -332,7 +332,7 @@ body {
 }
 
 .file-text {
-    color: var(--neon-purple);
+    color: var(--neon-cyan);
     font-weight: 700;
     font-size: 1.1em;
 }
@@ -363,6 +363,11 @@ input[type="file"] {
     border-color: var(--neon-cyan);
     color: var(--neon-cyan);
     text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.btn-secondary {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
 }
 
 .btn-primary:hover {
@@ -553,7 +558,8 @@ input[type="file"] {
     
     .upload-section,
     .player-info,
-    .help-section {
+    .help-section,
+    .stream-section {
         padding: 25px;
         margin-bottom: 30px;
     }
