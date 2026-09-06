@@ -1,0 +1,65 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - heading "🎬 Bradmax Player" [level=1] [ref=e6]
+      - paragraph [ref=e7]: Professional Video Player Manager
+    - generic [ref=e8]: v1.1.32
+  - navigation "Player sections" [ref=e9]:
+    - button "▶️ Stream Player" [ref=e10] [cursor=pointer]
+    - button "📤 Upload Player" [active] [ref=e11] [cursor=pointer]
+  - generic [ref=e30]:
+    - generic [ref=e31]:
+      - heading "📤 Upload Custom Player" [level=2] [ref=e32]
+      - generic [ref=e33]:
+        - generic [ref=e35] [cursor=pointer]:
+          - generic [ref=e36]: 📁
+          - generic [ref=e37]: Select bradmax_player.js file
+        - button "⬆️ Upload Player" [ref=e38] [cursor=pointer]
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - heading "ℹ️ How to Get Custom Player" [level=2] [ref=e41]
+        - paragraph [ref=e42]: You are using default Bradmax player v2.15.50
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - generic [ref=e46]: "1"
+          - generic [ref=e47]:
+            - strong [ref=e48]: Sign up
+            - text: at
+            - link "bradmax.com" [ref=e49] [cursor=pointer]:
+              - /url: https://bradmax.com/site/en/signup
+        - generic [ref=e50]:
+          - generic [ref=e51]: "2"
+          - generic [ref=e52]:
+            - strong [ref=e53]: Sign in
+            - text: and navigate to Players List
+        - generic [ref=e54]:
+          - generic [ref=e55]: "3"
+          - generic [ref=e56]:
+            - strong [ref=e57]: Create new player
+            - text: with your desired configuration
+        - generic [ref=e58]:
+          - generic [ref=e59]: "4"
+          - generic [ref=e60]:
+            - strong [ref=e61]: Configure
+            - text: skin, colors, and other features
+        - generic [ref=e62]:
+          - generic [ref=e63]: "5"
+          - generic [ref=e64]:
+            - strong [ref=e65]: Generate
+            - text: the player files
+        - generic [ref=e66]:
+          - generic [ref=e67]: "6"
+          - generic [ref=e68]:
+            - strong [ref=e69]: Download
+            - text: bradmax_player.js and upload it here
+      - paragraph [ref=e71]: ✨ It's completely free!
+  - generic [ref=e24]:
+    - paragraph [ref=e25]: Bradmax Player v2.15.50 | Standalone Edition
+    - paragraph [ref=e26]:
+      - text: 📚
+      - link "Learn more at Bradmax" [ref=e27] [cursor=pointer]:
+        - /url: https://bradmax.com
+    - generic [ref=e28]:
+      - text: © 2026
+      - link "TRC4" [ref=e29] [cursor=pointer]:
+        - /url: https://kodi.al/

@@ -1,0 +1,31 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - heading "🎬 Bradmax Player" [level=1] [ref=e6]
+      - paragraph [ref=e7]: Professional Video Player Manager
+    - generic [ref=e8]: v1.1.32
+  - navigation "Player sections" [ref=e9]:
+    - button "▶️ Stream Player" [ref=e10] [cursor=pointer]
+    - button "📤 Upload Player" [ref=e11] [cursor=pointer]
+  - generic [ref=e13]:
+    - heading "▶️ Play a Stream" [level=2] [ref=e14]
+    - paragraph [ref=e15]: Enter a stream URL and press Play. HTML5 is used by default; an uploaded Bradmax player is used automatically.
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]: Stream URL
+        - textbox "Stream URL" [ref=e19]:
+          - /placeholder: https://example.com/live/playlist.m3u8
+      - generic [ref=e20]:
+        - button "▶️ Play Stream" [ref=e21] [cursor=pointer]
+        - button "Clear" [ref=e22] [cursor=pointer]
+    - status [ref=e23]
+  - generic [ref=e24]:
+    - paragraph [ref=e25]: Bradmax Player v2.15.50 | Standalone Edition
+    - paragraph [ref=e26]:
+      - text: 📚
+      - link "Learn more at Bradmax" [ref=e27] [cursor=pointer]:
+        - /url: https://bradmax.com
+    - generic [ref=e28]:
+      - text: © 2026
+      - link "TRC4" [ref=e29] [cursor=pointer]:
+        - /url: https://kodi.al/
